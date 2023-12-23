@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_not_found_not_founds",
+  "info": {
+    "displayName": "notFound",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "content": {
+      "type": "text"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "ui.button"
+    }
+  }
+}

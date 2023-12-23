@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_home_abouts",
+  "info": {
+    "displayName": "about"
+  },
+  "options": {},
+  "attributes": {
+    "subhead": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string"
+    },
+    "content": {
+      "type": "text"
+    },
+    "tabs": {
+      "displayName": "aboutTabs",
+      "type": "component",
+      "repeatable": true,
+      "component": "home.about-tabs"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "tabsTitle": {
+      "type": "string"
+    }
+  }
+}

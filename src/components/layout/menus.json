@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_layout_menus",
+  "info": {
+    "displayName": "menus",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.menu-item"
+    }
+  }
+}

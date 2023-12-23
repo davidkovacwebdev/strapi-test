@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_home_services_sliders",
+  "info": {
+    "displayName": "servicesSlider",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "subhead": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string"
+    },
+    "items": {
+      "displayName": "servicesSliderItem",
+      "type": "component",
+      "repeatable": true,
+      "component": "home.services-slider-item"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "info": {
+      "type": "component",
+      "repeatable": false,
+      "component": "home.services-slider-info"
+    }
+  }
+}

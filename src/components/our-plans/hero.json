@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_our_plans_heroes",
+  "info": {
+    "displayName": "hero"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "content": {
+      "displayName": "ourPlansItems",
+      "type": "component",
+      "repeatable": false,
+      "component": "our-plans.our-plans-items"
+    }
+  }
+}

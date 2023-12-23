@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_our_plans_compare_title",
+  "info": {
+    "displayName": "compareTitles",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "only": {
+      "type": "string"
+    },
+    "basic": {
+      "type": "string"
+    },
+    "enhanced": {
+      "type": "string"
+    },
+    "border": {
+      "type": "boolean"
+    }
+  }
+}

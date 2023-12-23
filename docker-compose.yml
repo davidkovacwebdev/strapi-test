@@ -1,0 +1,10 @@
+version: '3'
+services:
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_DB: 'virtueco_db'
+      POSTGRES_USER: 'strapi_worker'
+      POSTGRES_PASSWORD: 'supersecretpass'
+    ports:
+      - 5433:5432

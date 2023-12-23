@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_ui_forms",
+  "info": {
+    "displayName": "form"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "input": {
+      "displayName": "input",
+      "type": "component",
+      "repeatable": true,
+      "component": "ui.input"
+    },
+    "submit": {
+      "displayName": "button",
+      "type": "component",
+      "repeatable": false,
+      "component": "ui.button"
+    }
+  }
+}
