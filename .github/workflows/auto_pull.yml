@@ -65,4 +65,4 @@ jobs:
     if: failure()
     steps:
       - name: Failed message
-        run: echo "It seems something failed, check the project code"
+        run: echo "It seems something failed, check the project codeaaa"
