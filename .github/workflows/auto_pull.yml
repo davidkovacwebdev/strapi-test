@@ -34,6 +34,6 @@ jobs:
           port: ${{ secrets.PORT }}
           command_timeout: 30m
           script: |
-            cd ~/strapi-test
+            cd ~/${{github.event.repository.name}}
             git pull origin master
             echo "That worked hopefully"
