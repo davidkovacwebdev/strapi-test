@@ -9,14 +9,14 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v3
-      - name: Use node lts
-        uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
   code_test:
     needs: run_pull
     runs-on: ubuntu-latest
     steps:
+      - name: Use node lts
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
       - name: Checks node and runs build
         run: |
             node -v
