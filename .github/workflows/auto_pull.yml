@@ -10,4 +10,16 @@ jobs:
       - name: Get code
         uses: actions/checkout@v3
       - name: Checks new files
-        run: npm run build
+        run: ls -la
+    #   - name: install ssh keys
+    #     uses: appleboy/ssh-action@v0.1.10
+    #     with:
+    #       host: ${{secrets.HOST}}
+    #       username: ${{secrets.USERNAME}}
+    #       key: ${{ secrets.SSH_PRIVATE_KEY}}
+    #       port: ${{ secrets.PORT }}
+    #       command_timeout: 30m
+    #       script: |
+    #         cd ~/strapi-test
+    #         git pull origin master
+    #         echo "That worked hopefully"
