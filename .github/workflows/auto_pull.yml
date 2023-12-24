@@ -19,6 +19,7 @@ jobs:
           node-version: lts/*
       - name: Checks node and runs build
         run: |
+            ls -la
             node -v
             echo "Running npm i"
             npm i
