@@ -51,18 +51,18 @@ jobs:
       - name: Runs npm build
         uses: appleboy/ssh-action@v0.1.10
         with:
-            host: ${{secrets.HOST}}
-            username: ${{secrets.USERNAME}}
-            key: ${{ secrets.SSH_PRIVATE_KEY}}
-            port: ${{ secrets.PORT }}
-            command_timeout: 30m
-            script: |
-                cd ~/${{github.event.repository.name}}
-                pm2 restart strapi-test
+          host: ${{secrets.HOST}}
+          username: ${{secrets.USERNAME}}
+          key: ${{ secrets.SSH_PRIVATE_KEY}}
+          port: ${{ secrets.PORT }}
+          command_timeout: 30m
+          script: |
+            /home/david/.npm-global/bin/pm2 restart ${{github.event.repository.name}}
+
   error:
     runs-on: ubuntu-latest
     needs: code_test
     if: failure()
     steps:
-        - name: Failed message
-          run: echo "It seems something failed, check the project code"
+      - name: Failed message
+        run: echo "It seems something failed, check the project code"
