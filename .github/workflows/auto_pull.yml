@@ -13,11 +13,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
-   code_test:
+  code_test:
     needs: run_pull
     runs-on: ubuntu-latest
     steps:
-        name: Checks node and runs build
+      - name: Checks node and runs build
         run: |
             node -v
             echo "Running npm i"
