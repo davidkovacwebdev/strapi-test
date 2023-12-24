@@ -58,7 +58,6 @@ jobs:
             command_timeout: 30m
             script: |
                 cd ~/${{github.event.repository.name}}
-                npm i -g pm2
                 pm2 reload strapi-test
   error:
     runs-on: ubuntu-latest
