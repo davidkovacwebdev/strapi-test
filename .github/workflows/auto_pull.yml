@@ -9,14 +9,16 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v3
-      - name: Check Node verison
+      - name: Use node lts
         uses: actions/setup-node@v4
         with:
             node-version: lts/*
       - name: Checks new files
         run: |
             node -v
+            echo "Running npm i"
             npm i
+            echo "Running run build"
             npm run build
 
     #   - name: install ssh keys
