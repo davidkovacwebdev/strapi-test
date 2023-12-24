@@ -12,7 +12,7 @@ jobs:
       - name: Check Node verison
         uses: actions/setup-node@v4
         with:
-            node-version: latest
+            node-version: lts
       - name: Checks new files
         run: |
             node -v
