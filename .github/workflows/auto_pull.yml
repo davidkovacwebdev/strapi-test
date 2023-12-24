@@ -9,8 +9,12 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v3
+      - name: Check Node verison
+        uses: actions/setup-node@v4
+        with:
+            node-version: latest
       - name: Checks new files
-        run: ls -la
+        run: npm i
     #   - name: install ssh keys
     #     uses: appleboy/ssh-action@v0.1.10
     #     with:
