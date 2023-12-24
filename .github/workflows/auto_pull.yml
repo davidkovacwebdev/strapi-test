@@ -37,7 +37,9 @@ jobs:
             cd ~/${{github.event.repository.name}}
             git pull origin master
             echo "That worked hopefully"
+            echo "npm i"
             npm i
+            echo "npm run build"
             npm run build
   error:
     runs-on: ubuntu-latest
