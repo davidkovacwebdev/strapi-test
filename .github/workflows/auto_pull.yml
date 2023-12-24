@@ -49,7 +49,7 @@ jobs:
             cd ~/${{github.event.repository.name}}
             npm i
             npm run build
-      - name: Runs commands
+      - name: Runs npm build
         uses: appleboy/ssh-action@v0.1.10
         with:
             host: ${{secrets.HOST}}
