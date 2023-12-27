@@ -1,3 +1,5 @@
+console.log(process.env.STRAPI_SECURITY_SCRIPT_SRC?.split(", "));
+
 module.exports = [
   "strapi::errors",
   "strapi::security",
