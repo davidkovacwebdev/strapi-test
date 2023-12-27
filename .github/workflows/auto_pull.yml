@@ -18,7 +18,7 @@ jobs:
           ls -la
           nvm use --lts
           node -v
-          echo "Running npm i"
+          echo "Running npm i."
           npm i
           echo "Running run build"
           npm run build
