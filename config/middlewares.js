@@ -6,17 +6,10 @@ module.exports = [
       contentSecurityPolicy: {
         useDefaults: true,
         directives: {
-          "script-src": ["self", "unsafe-inline", "cdn.jsdelivr.net", "blob:"],
-          "img-src": [
-            "self",
-            "data:",
-            "strapi.io",
-            "cdn.jsdelivr.net",
-            "res.cloudinary.com",
-            "market-assets.strapi.io",
-          ],
-          "media-src": ["self", "data", "blob:", "res.cloudinary.com"],
-          "connect-src": ["self", "http:", "https:"],
+          "script-src": process.env.STRAPI_SECURITY_SCRIPT_SRC.split(", "),
+          "img-src": process.env.STRAPI_SECURITY_IMG_SRC.split(", "),
+          "media-src": process.env.STRAPI_SECURITY_MEDIA_SRC.split(", "),
+          "connect-src": process.env.STRAPI_SECURITY_CONNECT_SRC.split(", "),
         },
         upgradeInsecureRequests: null,
       },
