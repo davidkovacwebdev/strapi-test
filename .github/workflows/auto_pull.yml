@@ -49,6 +49,7 @@ jobs:
           command_timeout: 30m
           script: |
             cd ~/${{github.event.repository.name}}
+            . ~/.nvm/nvm.sh use --lts
             npm i
       - name: Runs npm build
         uses: appleboy/ssh-action@v0.1.10
