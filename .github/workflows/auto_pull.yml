@@ -15,8 +15,8 @@ jobs:
           node-version: lts/*
       - name: Checks node and runs build
         run: |
-          echo "code testasdasdasd"
           ls -la
+          nvm use --lts
           node -v
           echo "Running npm i"
           npm i
@@ -36,6 +36,7 @@ jobs:
           command_timeout: 30m
           script: |
             cd ~/${{github.event.repository.name}}
+            nvm use --lts
             git pull origin master
             echo "That worked hopefully"
       - name: Runs npm i
