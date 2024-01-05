@@ -63,6 +63,18 @@ jobs:
             cd ~/${{github.event.repository.name}}
             npm run build
             /home/david/.npm-global/bin/pm2 restart ${{github.event.repository.name}}
+      - name: Restarts pm2
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{secrets.HOST}}
+          username: ${{secrets.USERNAME}}
+          key: ${{ secrets.SSH_PRIVATE_KEY}}
+          port: ${{ secrets.PORT }}
+          command_timeout: 30m
+          script: |
+            cd ~/${{github.event.repository.name}}
+
+            /home/david/.npm-global/bin/pm2 restart ${{github.event.repository.name}}      
 
   error:
     runs-on: ubuntu-latest
