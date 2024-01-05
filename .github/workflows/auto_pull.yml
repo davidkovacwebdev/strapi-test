@@ -60,6 +60,7 @@ jobs:
           port: ${{ secrets.PORT }}
           command_timeout: 30m
           script: |
+            cd ~/${{github.event.repository.name}}
             npm run build
             /home/david/.npm-global/bin/pm2 restart ${{github.event.repository.name}}
 
