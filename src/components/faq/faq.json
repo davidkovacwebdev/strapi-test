@@ -5,17 +5,11 @@
   },
   "options": {},
   "attributes": {
-    "heading": {
-      "type": "string"
-    },
-    "content": {
-      "type": "text"
-    },
     "items": {
-      "displayName": "faqItems",
+      "displayName": "faqItem",
       "type": "component",
       "repeatable": true,
-      "component": "faq.faq-items"
+      "component": "faq.faq-item"
     }
   }
 }

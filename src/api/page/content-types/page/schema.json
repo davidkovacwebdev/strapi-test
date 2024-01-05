@@ -23,22 +23,10 @@
       "type": "dynamiczone",
       "components": [
         "home.hero",
-        "home.about",
-        "home.services",
-        "home.compliance",
-        "home.benefits",
-        "home.services-slider",
-        "home.partners",
-        "not-found.not-found",
         "faq.faq",
-        "contact.contact",
-        "our-plans.compare",
-        "our-plans.plans",
-        "our-plans.hero"
+        "analysis.empty",
+        "get-started.get-started"
       ]
-    },
-    "isLight": {
-      "type": "boolean"
     },
     "seo": {
       "type": "component",

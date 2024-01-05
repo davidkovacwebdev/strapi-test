@@ -1,13 +1,15 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface ContactContactItem extends Schema.Component {
-  collectionName: 'components_contact_contact_items';
+export interface AnalysisEmpty extends Schema.Component {
+  collectionName: 'components_analysis_empties';
   info: {
-    displayName: 'contactItem';
+    displayName: 'empty';
+    description: '';
   };
   attributes: {
-    label: Attribute.String;
-    content: Attribute.String;
+    heading: Attribute.String;
+    content: Attribute.Text;
+    image: Attribute.Media;
   };
 }
 
@@ -15,20 +17,32 @@ export interface ContactContact extends Schema.Component {
   collectionName: 'components_contact_contacts';
   info: {
     displayName: 'contact';
-    description: '';
   };
   attributes: {
-    heading: Attribute.String;
-    content: Attribute.Text;
-    items: Attribute.Component<'contact.contact-item', true>;
-    image: Attribute.Media;
+    input: Attribute.Component<'contact.item', true>;
   };
 }
 
-export interface FaqFaqItems extends Schema.Component {
+export interface ContactItem extends Schema.Component {
+  collectionName: 'components_contact_items';
+  info: {
+    displayName: 'item';
+    description: '';
+  };
+  attributes: {
+    label: Attribute.String;
+    placeholder: Attribute.String;
+    name: Attribute.String;
+    error: Attribute.String;
+    type: Attribute.Enumeration<['text', 'email', 'textarea']>;
+    required: Attribute.Boolean & Attribute.DefaultTo<false>;
+  };
+}
+
+export interface FaqFaqItem extends Schema.Component {
   collectionName: 'components_faq_faq_items';
   info: {
-    displayName: 'faqItems';
+    displayName: 'faqItem';
   };
   attributes: {
     heading: Attribute.String;
@@ -42,86 +56,30 @@ export interface FaqFaq extends Schema.Component {
     displayName: 'faq';
   };
   attributes: {
-    heading: Attribute.String;
-    content: Attribute.Text;
-    items: Attribute.Component<'faq.faq-items', true>;
+    items: Attribute.Component<'faq.faq-item', true>;
   };
 }
 
-export interface HomeAboutTabs extends Schema.Component {
-  collectionName: 'components_home_about_tabs';
+export interface GetStartedGetStarted extends Schema.Component {
+  collectionName: 'components_get_started_get_starteds';
   info: {
-    displayName: 'aboutTabs';
-    description: '';
+    displayName: 'getStarted';
   };
   attributes: {
-    title: Attribute.String;
-    content: Attribute.RichText;
-  };
-}
-
-export interface HomeAbout extends Schema.Component {
-  collectionName: 'components_home_abouts';
-  info: {
-    displayName: 'about';
-  };
-  attributes: {
-    subhead: Attribute.String;
     heading: Attribute.String;
-    content: Attribute.Text;
-    tabs: Attribute.Component<'home.about-tabs', true>;
-    image: Attribute.Media;
-    tabsTitle: Attribute.String;
+    items: Attribute.Component<'get-started.item', true>;
   };
 }
 
-export interface HomeBenefitItems extends Schema.Component {
-  collectionName: 'components_home_benefit_items';
+export interface GetStartedItem extends Schema.Component {
+  collectionName: 'components_get_started_items';
   info: {
-    displayName: 'benefitItems';
+    displayName: 'item';
   };
   attributes: {
     heading: Attribute.String;
     content: Attribute.Text;
-  };
-}
-
-export interface HomeBenefits extends Schema.Component {
-  collectionName: 'components_home_benefits';
-  info: {
-    displayName: 'benefits';
-  };
-  attributes: {
-    subhead: Attribute.String;
-    heading: Attribute.String;
-    content: Attribute.Text;
-    items: Attribute.Component<'home.benefit-items', true>;
-  };
-}
-
-export interface HomeComplianceItems extends Schema.Component {
-  collectionName: 'components_home_compliance_items';
-  info: {
-    displayName: 'complianceItems';
-    description: '';
-  };
-  attributes: {
-    items: Attribute.Component<'home.services-item', true>;
-    title: Attribute.String;
-  };
-}
-
-export interface HomeCompliance extends Schema.Component {
-  collectionName: 'components_home_compliances';
-  info: {
-    displayName: 'compliance';
-  };
-  attributes: {
-    subhead: Attribute.String;
-    heading: Attribute.String;
-    content: Attribute.Text;
-    compliances: Attribute.Component<'home.compliance-items'>;
-    image: Attribute.Media;
+    images: Attribute.Media;
   };
 }
 
@@ -129,289 +87,13 @@ export interface HomeHero extends Schema.Component {
   collectionName: 'components_home_heroes';
   info: {
     displayName: 'hero';
-    description: '';
   };
   attributes: {
     heading: Attribute.String;
-    headingAnimList: Attribute.Component<'ui.text', true>;
-    button: Attribute.Component<'ui.button', true>;
-    content: Attribute.Text;
-    email: Attribute.String;
-    video: Attribute.Media;
-  };
-}
-
-export interface HomePartnersItem extends Schema.Component {
-  collectionName: 'components_home_partners_items';
-  info: {
-    displayName: 'partnersItem';
-  };
-  attributes: {
-    content: Attribute.Text;
-    icon: Attribute.Media;
+    items: Attribute.Component<'ui.text', true>;
+    logo: Attribute.Media;
+    button: Attribute.Component<'ui.button'>;
     image: Attribute.Media;
-    name: Attribute.String;
-    role: Attribute.String;
-    linkedin: Attribute.String;
-  };
-}
-
-export interface HomePartners extends Schema.Component {
-  collectionName: 'components_home_partners';
-  info: {
-    displayName: 'partners';
-  };
-  attributes: {
-    subhead: Attribute.String;
-    heading: Attribute.String;
-    items: Attribute.Component<'home.partners-item', true>;
-  };
-}
-
-export interface HomeServicesItem extends Schema.Component {
-  collectionName: 'components_home_services_item';
-  info: {
-    displayName: 'servicesItem';
-  };
-  attributes: {
-    heading: Attribute.String;
-    content: Attribute.Text;
-  };
-}
-
-export interface HomeServicesItems extends Schema.Component {
-  collectionName: 'components_home_services_items';
-  info: {
-    displayName: 'servicesItems';
-  };
-  attributes: {
-    title: Attribute.String;
-    items: Attribute.Component<'home.services-item', true>;
-  };
-}
-
-export interface HomeServicesSliderInfo extends Schema.Component {
-  collectionName: 'components_home_services_slider_infos';
-  info: {
-    displayName: 'servicesSliderInfo';
-    description: '';
-  };
-  attributes: {
-    heading: Attribute.String;
-    content: Attribute.Text;
-    icon: Attribute.Media;
-    buttonLabel: Attribute.String;
-    buttonHref: Attribute.String;
-  };
-}
-
-export interface HomeServicesSliderItem extends Schema.Component {
-  collectionName: 'components_home_services_slider_items';
-  info: {
-    displayName: 'servicesSliderItem';
-  };
-  attributes: {
-    heading: Attribute.String;
-    content: Attribute.Text;
-    icon: Attribute.Media;
-  };
-}
-
-export interface HomeServicesSlider extends Schema.Component {
-  collectionName: 'components_home_services_sliders';
-  info: {
-    displayName: 'servicesSlider';
-    description: '';
-  };
-  attributes: {
-    subhead: Attribute.String;
-    heading: Attribute.String;
-    items: Attribute.Component<'home.services-slider-item', true>;
-    backgroundImage: Attribute.Media;
-    info: Attribute.Component<'home.services-slider-info'>;
-  };
-}
-
-export interface HomeServices extends Schema.Component {
-  collectionName: 'components_home_services';
-  info: {
-    displayName: 'services';
-  };
-  attributes: {
-    subhead: Attribute.String;
-    heading: Attribute.String;
-    content: Attribute.Text;
-    services: Attribute.Component<'home.services-items'>;
-    buttons: Attribute.Component<'ui.button', true>;
-    image: Attribute.Media;
-  };
-}
-
-export interface LayoutFooter extends Schema.Component {
-  collectionName: 'components_layout_footers';
-  info: {
-    displayName: 'footer';
-  };
-  attributes: {
-    heading: Attribute.String;
-  };
-}
-
-export interface LayoutHeader extends Schema.Component {
-  collectionName: 'components_layout_headers';
-  info: {
-    displayName: 'header';
-  };
-  attributes: {
-    navigation: Attribute.Component<'layout.menu-item', true>;
-    menu: Attribute.Component<'layout.menu-item', true>;
-    socials: Attribute.Component<'layout.menu-item', true>;
-  };
-}
-
-export interface LayoutMenuItem extends Schema.Component {
-  collectionName: 'components_layout_menu_items';
-  info: {
-    displayName: 'menuItem';
-    description: '';
-  };
-  attributes: {
-    label: Attribute.String;
-    href: Attribute.String;
-    isExternal: Attribute.Boolean;
-    class: Attribute.String;
-    file: Attribute.Media;
-  };
-}
-
-export interface LayoutMenus extends Schema.Component {
-  collectionName: 'components_layout_menus';
-  info: {
-    displayName: 'menus';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String;
-    items: Attribute.Component<'layout.menu-item', true>;
-  };
-}
-
-export interface NotFoundNotFound extends Schema.Component {
-  collectionName: 'components_not_found_not_founds';
-  info: {
-    displayName: 'notFound';
-    description: '';
-  };
-  attributes: {
-    heading: Attribute.String;
-    content: Attribute.Text;
-    button: Attribute.Component<'ui.button'>;
-  };
-}
-
-export interface OurPlansCompareItem extends Schema.Component {
-  collectionName: 'components_our_plans_compare_items';
-  info: {
-    displayName: 'compareItem';
-    description: '';
-  };
-  attributes: {};
-}
-
-export interface OurPlansCompareTitle extends Schema.Component {
-  collectionName: 'components_our_plans_compare_title';
-  info: {
-    displayName: 'compareTitles';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String;
-    only: Attribute.String;
-    basic: Attribute.String;
-    enhanced: Attribute.String;
-    border: Attribute.Boolean;
-  };
-}
-
-export interface OurPlansCompare extends Schema.Component {
-  collectionName: 'components_our_plans_compares';
-  info: {
-    displayName: 'compare';
-    description: '';
-  };
-  attributes: {
-    items: Attribute.Component<'our-plans.compare-title', true>;
-    buttons: Attribute.Component<'ui.button', true>;
-    summary: Attribute.Component<'our-plans.compare-title', true>;
-  };
-}
-
-export interface OurPlansHero extends Schema.Component {
-  collectionName: 'components_our_plans_heroes';
-  info: {
-    displayName: 'hero';
-  };
-  attributes: {
-    heading: Attribute.String;
-    content: Attribute.Component<'our-plans.our-plans-items'>;
-  };
-}
-
-export interface OurPlansOurPlansItem extends Schema.Component {
-  collectionName: 'components_our_plans_our_plans_item';
-  info: {
-    displayName: 'ourPlansItem';
-    description: '';
-  };
-  attributes: {
-    heading: Attribute.String;
-    label: Attribute.String;
-  };
-}
-
-export interface OurPlansOurPlansItems extends Schema.Component {
-  collectionName: 'components_our_plans_our_plans_items';
-  info: {
-    displayName: 'ourPlansItems';
-  };
-  attributes: {
-    heading: Attribute.String;
-    items: Attribute.Component<'our-plans.our-plans-item', true>;
-    label: Attribute.String;
-    price: Attribute.String;
-    priceLabel: Attribute.String;
-    button: Attribute.Component<'ui.button'>;
-  };
-}
-
-export interface OurPlansPlansItem extends Schema.Component {
-  collectionName: 'components_our_plans_plans_items';
-  info: {
-    displayName: 'plansItem';
-    description: '';
-  };
-  attributes: {
-    subhead: Attribute.String;
-    price: Attribute.String;
-    priceLabel: Attribute.String;
-    otherPrice: Attribute.String;
-    otherPriceLabel: Attribute.String;
-    buttonLabel: Attribute.String;
-    buttonHref: Attribute.String;
-    items: Attribute.RichText;
-  };
-}
-
-export interface OurPlansPlans extends Schema.Component {
-  collectionName: 'components_our_plans_plans';
-  info: {
-    displayName: 'plans';
-    description: '';
-  };
-  attributes: {
-    heading: Attribute.String;
-    items: Attribute.Component<'our-plans.plans-item', true>;
-    button: Attribute.Component<'ui.button'>;
   };
 }
 
@@ -500,9 +182,26 @@ export interface UiInput extends Schema.Component {
   attributes: {
     placeholder: Attribute.String;
     error: Attribute.String;
-    type: Attribute.Enumeration<['text', 'email', 'tel', 'textarea']>;
+    type: Attribute.Enumeration<
+      [
+        'tel',
+        'file',
+        'text',
+        'email',
+        'range',
+        'number',
+        'textarea',
+        'checkbox'
+      ]
+    >;
     name: Attribute.String;
     required: Attribute.Boolean;
+    description: Attribute.Text;
+    tooltip: Attribute.String;
+    tooltipContent: Attribute.Text;
+    label: Attribute.String;
+    rangeMin: Attribute.String;
+    rangeMax: Attribute.String;
   };
 }
 
@@ -519,38 +218,14 @@ export interface UiText extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'contact.contact-item': ContactContactItem;
+      'analysis.empty': AnalysisEmpty;
       'contact.contact': ContactContact;
-      'faq.faq-items': FaqFaqItems;
+      'contact.item': ContactItem;
+      'faq.faq-item': FaqFaqItem;
       'faq.faq': FaqFaq;
-      'home.about-tabs': HomeAboutTabs;
-      'home.about': HomeAbout;
-      'home.benefit-items': HomeBenefitItems;
-      'home.benefits': HomeBenefits;
-      'home.compliance-items': HomeComplianceItems;
-      'home.compliance': HomeCompliance;
+      'get-started.get-started': GetStartedGetStarted;
+      'get-started.item': GetStartedItem;
       'home.hero': HomeHero;
-      'home.partners-item': HomePartnersItem;
-      'home.partners': HomePartners;
-      'home.services-item': HomeServicesItem;
-      'home.services-items': HomeServicesItems;
-      'home.services-slider-info': HomeServicesSliderInfo;
-      'home.services-slider-item': HomeServicesSliderItem;
-      'home.services-slider': HomeServicesSlider;
-      'home.services': HomeServices;
-      'layout.footer': LayoutFooter;
-      'layout.header': LayoutHeader;
-      'layout.menu-item': LayoutMenuItem;
-      'layout.menus': LayoutMenus;
-      'not-found.not-found': NotFoundNotFound;
-      'our-plans.compare-item': OurPlansCompareItem;
-      'our-plans.compare-title': OurPlansCompareTitle;
-      'our-plans.compare': OurPlansCompare;
-      'our-plans.hero': OurPlansHero;
-      'our-plans.our-plans-item': OurPlansOurPlansItem;
-      'our-plans.our-plans-items': OurPlansOurPlansItems;
-      'our-plans.plans-item': OurPlansPlansItem;
-      'our-plans.plans': OurPlansPlans;
       'shared.meta-social': SharedMetaSocial;
       'shared.seo': SharedSeo;
       'ui.button': UiButton;

@@ -3,7 +3,7 @@ services:
   db:
     image: postgres:14
     environment:
-      POSTGRES_DB: 'virtueco_db'
+      POSTGRES_DB: 'tide_db'
       POSTGRES_USER: 'strapi_worker'
       POSTGRES_PASSWORD: 'supersecretpass'
     ports:

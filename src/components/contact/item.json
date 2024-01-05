@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_contact_items",
+  "info": {
+    "displayName": "item",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "placeholder": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "error": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "text",
+        "email",
+        "textarea"
+      ]
+    },
+    "required": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

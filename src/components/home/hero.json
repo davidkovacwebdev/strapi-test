@@ -1,34 +1,33 @@
 {
   "collectionName": "components_home_heroes",
   "info": {
-    "displayName": "hero",
-    "description": ""
+    "displayName": "hero"
   },
   "options": {},
   "attributes": {
     "heading": {
       "type": "string"
     },
-    "headingAnimList": {
-      "displayName": "text",
+    "items": {
       "type": "component",
       "repeatable": true,
       "component": "ui.text"
     },
+    "logo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
     "button": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "ui.button"
     },
-    "content": {
-      "type": "text"
-    },
-    "email": {
-      "type": "string"
-    },
-    "video": {
+    "image": {
       "allowedTypes": [
-        "videos"
+        "images"
       ],
       "type": "media",
       "multiple": false

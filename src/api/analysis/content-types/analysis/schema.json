@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "contacts",
+  "collectionName": "analyses",
   "info": {
-    "singularName": "contact",
-    "pluralName": "contacts",
-    "displayName": "contact",
+    "singularName": "analysis",
+    "pluralName": "analyses",
+    "displayName": "analysis",
     "description": ""
   },
   "options": {
@@ -12,22 +12,24 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "form": {
-      "displayName": "contact",
-      "type": "component",
-      "repeatable": false,
-      "component": "contact.contact"
-    },
     "heading": {
       "type": "string"
     },
     "content": {
-      "type": "text"
+      "type": "richtext"
+    },
+    "form": {
+      "type": "component",
+      "repeatable": true,
+      "component": "ui.input"
     },
     "submit": {
       "type": "component",
       "repeatable": false,
       "component": "ui.button"
+    },
+    "formTitle": {
+      "type": "string"
     }
   }
 }

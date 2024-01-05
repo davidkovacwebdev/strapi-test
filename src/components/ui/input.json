@@ -15,17 +15,41 @@
     "type": {
       "type": "enumeration",
       "enum": [
+        "tel",
+        "file",
         "text",
         "email",
-        "tel",
-        "textarea"
-      ]
+        "range",
+        "number",
+        "textarea",
+        "checkbox"
+      ],
+      "required": false
     },
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": false
     },
     "required": {
       "type": "boolean"
+    },
+    "description": {
+      "type": "text"
+    },
+    "tooltip": {
+      "type": "string"
+    },
+    "tooltipContent": {
+      "type": "text"
+    },
+    "label": {
+      "type": "string"
+    },
+    "rangeMin": {
+      "type": "string"
+    },
+    "rangeMax": {
+      "type": "string"
     }
   }
 }

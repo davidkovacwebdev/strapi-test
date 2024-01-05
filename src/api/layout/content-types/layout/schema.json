@@ -4,8 +4,7 @@
   "info": {
     "singularName": "layout",
     "pluralName": "layouts",
-    "displayName": "layout",
-    "description": ""
+    "displayName": "layout"
   },
   "options": {
     "draftAndPublish": true
@@ -14,37 +13,8 @@
   "attributes": {
     "menu": {
       "type": "component",
-      "repeatable": false,
-      "component": "layout.menus"
-    },
-    "socials": {
-      "type": "component",
-      "repeatable": false,
-      "component": "layout.menus"
-    },
-    "legals": {
-      "type": "component",
-      "repeatable": false,
-      "component": "layout.menus"
-    },
-    "headerNav": {
-      "type": "component",
       "repeatable": true,
-      "component": "layout.menu-item"
-    },
-    "footerNav": {
-      "type": "component",
-      "repeatable": true,
-      "component": "layout.menu-item"
-    },
-    "email": {
-      "type": "string"
-    },
-    "copyright": {
-      "type": "string"
-    },
-    "heading": {
-      "type": "string"
+      "component": "ui.button"
     }
   }
 }

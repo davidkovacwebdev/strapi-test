@@ -677,6 +677,41 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiAnalysisAnalysis extends Schema.SingleType {
+  collectionName: 'analyses';
+  info: {
+    singularName: 'analysis';
+    pluralName: 'analyses';
+    displayName: 'analysis';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    heading: Attribute.String;
+    content: Attribute.RichText;
+    form: Attribute.Component<'ui.input', true>;
+    submit: Attribute.Component<'ui.button'>;
+    formTitle: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::analysis.analysis',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::analysis.analysis',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiContactContact extends Schema.SingleType {
   collectionName: 'contacts';
   info: {
@@ -689,8 +724,10 @@ export interface ApiContactContact extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
+    form: Attribute.Component<'contact.contact'>;
     heading: Attribute.String;
-    form: Attribute.Component<'ui.form'>;
+    content: Attribute.Text;
+    submit: Attribute.Component<'ui.button'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -715,20 +752,12 @@ export interface ApiLayoutLayout extends Schema.SingleType {
     singularName: 'layout';
     pluralName: 'layouts';
     displayName: 'layout';
-    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    menu: Attribute.Component<'layout.menus'>;
-    socials: Attribute.Component<'layout.menus'>;
-    legals: Attribute.Component<'layout.menus'>;
-    headerNav: Attribute.Component<'layout.menu-item', true>;
-    footerNav: Attribute.Component<'layout.menu-item', true>;
-    email: Attribute.String;
-    copyright: Attribute.String;
-    heading: Attribute.String;
+    menu: Attribute.Component<'ui.button', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -762,23 +791,8 @@ export interface ApiPagePage extends Schema.CollectionType {
     title: Attribute.String;
     slug: Attribute.UID<'api::page.page', 'title'>;
     blocks: Attribute.DynamicZone<
-      [
-        'home.hero',
-        'home.about',
-        'home.services',
-        'home.compliance',
-        'home.benefits',
-        'home.services-slider',
-        'home.partners',
-        'not-found.not-found',
-        'faq.faq',
-        'contact.contact',
-        'our-plans.compare',
-        'our-plans.plans',
-        'our-plans.hero'
-      ]
+      ['home.hero', 'faq.faq', 'analysis.empty', 'get-started.get-started']
     >;
-    isLight: Attribute.Boolean;
     seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -806,6 +820,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::analysis.analysis': ApiAnalysisAnalysis;
       'api::contact.contact': ApiContactContact;
       'api::layout.layout': ApiLayoutLayout;
       'api::page.page': ApiPagePage;
